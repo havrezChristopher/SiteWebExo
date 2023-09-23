@@ -1,0 +1,103 @@
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- -******************************************   initialisation de projet   ***************************************************************** -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!--todo 1.taper npm init => -->
+                    package name   :(Exercices_NodeJs) ici le nom du projet
+                    version        :(1.0.0) par default 
+                    description    :(Demo de l 'utilisation d'une DB (mssql) en NodeJS)
+                    entry point    :(index.js/server.js/main.js)les 3 les plus utiliser par default mais ici on va utiliser => Serveur.js
+                    test command   :(pour les test unitaire) pas encore vu en gros pour crée des prog pour tester notre prog
+                    git repository :(Permet d ajouter des info de git !)
+                    il est bien d ajouter son lien de son git pour que 
+                    il apparaise dons le fichier json au chargements
+                    keywords       :(utiliser pour mettre les mots clé #nodejs etc...)
+                    autor          :(auteur)
+                    license        :(isc) de base pour le moment !
+
+<!--todo 2.Instalation Nodemon (serveur live)=> -->
+                                      1. dans la console (npm i nodemon --save-dev ) dependance du développements
+                                        --save-dev instaler le projets dans le projet
+                                        ou avec -g (global) aventage 1 seul instalation pour tout les projets
+                                        crée devDependencies dans le json
+
+<!--todo 3. instaler le package pour MicrosoftSqlServer => (Node-mssql)  -->
+                                                 1.package pour ce connecter a MicrosoftSqlServer a instaler 
+                                                   pas en save-dev ==> npm i mssql
+
+<!--todo 4. instaler Moteur de template EJS  => (npm i ejs) -->
+                                       
+                                       
+
+<!--todo 5. Configuration variable d 'environements Pour le serveur (dot.env) =>  npm i dotenv -->
+                                                            crée des variable d environements 
+                                                            priver non accessible ! que l on va mettre dans le fichier gitygnor
+                                                            on va crée un fichier .env.exemple pour que l on sache comment 
+                                                            configurer le server pour retrouver plus facilement la methode 
+                                                            de connection !
+
+<!--?--------------------------------------------------------------------------------------------------------------------------------------------> 
+<!-- todo-*************************************************   package.Json   **********************************************************************-->
+<!--? --------------------------------------------------------------------------------------------------------------------------------------------> 
+
+
+<!--todo 1.ce rendre dans le fichier pachage.json=>   "start": "node server.js" quand on est sur l'instalation en (prod) npm start -->
+                                                        quand on est en prod il est sensé fonctioner sans nodemon 
+
+                                             "dev":"nodemon serveur.js"quand on est sur l'instalation en (dev) npm run dev
+<!--? ------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!--todo -*************************************************   Gitignore   ********************************************************************** -->
+<!--? ------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+1.Crée le fichier gitignor => Ensuite ctrl -Shift -p
+                              git add (Permet de généré unfichier gitignore tout fais du language (NodeJS))
+                              il peux aussi combiner tout les fichier gitignor et les charger automatiquements
+
+<!--?-------------------------------------------------------------------------------------------------------------------------------------------->
+<!--todo *************************************************   Configuration Du Serveur   ******************************************************** --->
+<!--?-------------------------------------------------------------------------------------------------------------------------------------------->
+
+1.Crée un fichier server.js 
+2.le tester un log dans le fichier 
+3.dans la console npm start ou run dev 
+
+
+
+<!--?------------------------------------------------------------------------------------------------------------------------------------------>
+<!--todo-*************************************************   Configuration Dues Variable d'Environements (dotenv)   **************************** -->
+<!--?------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+<!--todo!#permet que quand on recois le projet, de copier ce fichier pour rentrer les bonne info -->
+
+Dans ce fichier on va avoir les valeur pour ce Connecter au serveur: - On utilise une connection String avec(mssql) 
+                                                                     - qui contient toute les info pour ce connecter
+                                                                       
+<!--?------------------------------------------------------------------------------------------------------------------------------------------>
+<!--todo-*************************************************   Configuration Du Serveur ssms   ******************************************************** -->
+<!--?---------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--todo 1.OUVRIRE SSMS=> : -on retrouve le nom du serveur avec le mode d authentification ici (Windows)-->
+                   - ou il y a les compte (SA) Compte admin a ne pas utiliser 
+                   - ici on va ce connecter sur la base de donner 
+                   - ce connecter et crée un utilisateur pour la base de donnée
+                   - On va crée un admin que on va utiliser pour la dev 
+
+<!--todo 2. Clic droit sur DB et New query  : - On lui donne son nom => OK-->
+                                     - Aller dans le (Security) global de la DB  
+                                     - logins clic droit (New logins) 
+                                     - Entre le name et cocher (logins Sql) 
+                                     - Entrer mdp        
+                                     - decocher enforce policy    
+
+<!--todo 3.Config Serveur  Roles : en dev sysadmin on sen fou -->
+                          - En (prod) on va utiliser plutot un Mapping pour juste le mettre sur la machine 
+                          - on coche la machine 
+                          - et on peux décider des droit que l on veux doner ! (lire ecrire etc...)   
+                          - ici nous on utilise uniquement datareader et dataWriter   
+ <!--! par la suite on va utiliser un orm qui va permettre au code que l on va ecrire des crée notre DB !!!!                                                          -->
+                                                                    
+<!--?------------------------------------------------------------------------------------------------------------------------------------------>
+<!--todo-*************************************************   Suite sur le code    ******************************************************** -->
+<!--?---------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--!process.env récupere automatiquements les variable environement meme de windows   -->
+import de dotenv dans le server.js 
+(*---qui permet d intégrer nos variable d environement dans les global---*)
