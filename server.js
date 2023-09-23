@@ -24,6 +24,7 @@
 //    - Un email (Validation du format)
 //    - un message (Minimum 10 caractères)
 //***************************************************************************************************************************************
+//! Configuration pour la DB 43min!!!!!!!!!!!!!!!! 
 // Chargement des variables d'environnement (.env)
 require('dotenv').config();
 
@@ -31,14 +32,14 @@ require('dotenv').config();
 const http = require('http');
 //! Mon Module Perso
 const homeController = require('./MethodeControleurs/home.controller');
-// const dbUtils = require('./utils/db.utils');
+//TODO A METTRE EN FORM const dbUtils = require('./utils/db.utils');
 
 // Variable d'environements 
 // Destructuring ici aller chercher les éléments depuis { PORT }
 const { PORT } = process.env;
 
 // Test la connexion vers la DB
-// dbUtils.testDbConnection();
+//TODO A METTRE EN FORM dbUtils.testDbConnection();
 
 // Création du serveur
 const server = http.createServer((request, response) => {
@@ -63,17 +64,17 @@ const server = http.createServer((request, response) => {
 
         homeController.pageInfo(request, response);
     }
-    else if (request.url === '/comment') {
+    else if (request.url === '/indexComment') {
 
-        homeController.comment(request, response);
+        homeController.indexComment(request, response);
     }
     // ici quand on arrive sur la page c'est pour envoyer le formulaire
-    else if (request.url === '/commentaire-GET' && request.method === "GET") {
-        homeController.messageGET(request, response);
+    else if (request.url === '/commentaireForm-GET' && request.method === "GET") {
+        homeController.commentaireGET(request, response);
     }
     // ici c'est quand on clic sur la validation du formulaire
-    else if (request.url === '/commentaire-POST' && request.method === "POST") {
-        homeController.messagePOST(request, response);
+    else if (request.url === '/commentaireForm-POST' && request.method === "POST") {
+        homeController.commentairePOST(request, response);
     }
     else {
         // Génération simple d'une page d'erreur 404 !
