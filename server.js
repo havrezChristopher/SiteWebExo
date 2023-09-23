@@ -31,14 +31,14 @@ require('dotenv').config();
 const http = require('http');
 //! Mon Module Perso
 const homeController = require('./MethodeControleurs/home.controller');
-const dbUtils = require('./utils/db.utils');
+// const dbUtils = require('./utils/db.utils');
 
 // Variable d'environements 
 // Destructuring ici aller chercher les éléments depuis { PORT }
 const { PORT } = process.env;
 
 // Test la connexion vers la DB
-dbUtils.testDbConnection();
+// dbUtils.testDbConnection();
 
 // Création du serveur
 const server = http.createServer((request, response) => {
@@ -78,7 +78,7 @@ const server = http.createServer((request, response) => {
     else {
         // Génération simple d'une page d'erreur 404 !
         response.writeHead(404, { "Content-Type": "text/html" });
-        response.end("<h1>Page not found</h1>");
+        response.end("<h1>Page Erreur 404</h1>");
     }
 });
 
