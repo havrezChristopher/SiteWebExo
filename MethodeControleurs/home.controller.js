@@ -32,7 +32,11 @@ const homeController = {
     },
     indexComment: (req, res) => {
         //! Pour la Page de commentaire des clients
+<<<<<<< HEAD
         ejs.renderFile('../views/indexComment/indexComment.ejs')
+=======
+        ejs.renderFile('')
+>>>>>>> 503c5c198f6ca821de901cbe0d3138d504ce5e92
     
     },
 
