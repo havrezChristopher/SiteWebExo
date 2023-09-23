@@ -42,7 +42,7 @@ dbUtils.testDbConnection();
 // Création du serveur
 const server = http.createServer((request, response) => {
 
-    // Info de la requete
+    // Info de la requete avec ce que l on va récupérer
     console.log(`url: "${request.url}" • method: "${request.method}"`);
 
     // Routing simple (Méthode plus complexe vu avec "Express")
