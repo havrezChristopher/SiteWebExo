@@ -47,20 +47,38 @@ const server = http.createServer((request, response) => {
     console.log(`url: "${request.url}" • method: "${request.method}"`);
 
     // Routing simple (Méthode plus complexe vu avec "Express")
-    if(request.url === '/') {
+    if (request.url === '/') {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
         homeController.index(request, response);
     }
-    else if(request.url === '/message-add' && request.method === "GET") {
+    else if (request.url === '/menu') {
+
+        homeController.menu(request, response);
+    }
+    else if (request.url === '/menuDetail') {
+
+        homeController.menuDetail(request, response);
+    }
+    else if (request.url === '/pageInfo') {
+
+        homeController.pageInfo(request, response);
+    }
+    else if (request.url === '/comment') {
+
+        homeController.comment(request, response);
+    }
+    // ici quand on arrive sur la page c'est pour envoyer le formulaire
+    else if (request.url === '/commentaire-GET' && request.method === "GET") {
         homeController.messageGET(request, response);
     }
-    else if(request.url === '/message-add' && request.method === "POST") {
+    // ici c'est quand on clic sur la validation du formulaire
+    else if (request.url === '/commentaire-POST' && request.method === "POST") {
         homeController.messagePOST(request, response);
     }
     else {
         // Génération simple d'une page d'erreur 404 !
         response.writeHead(404, { "Content-Type": "text/html" });
-        response.end("<h1>Page not found</h1>")
+        response.end("<h1>Page not found</h1>");
     }
 });
 
