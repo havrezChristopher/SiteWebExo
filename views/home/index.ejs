@@ -13,15 +13,20 @@
         <legend>
             <h1>🍔 ***Acceuil Commentaire*** 🍔</h1>
         </legend>
+        <a href="/acceuil">Acceuil</a>
+        <a href="/menu">menu</a>
+        <a href="/menuDetail">menu Details</a>
+        <a href="/pageInfo">Page Info</a>
+        <a href="/message-add"> Ajouter Un Message</a>
         <% MessageSql.forEach (msg=> { %>
 
             <ul>
-            <li>
-                <%= msg.Prenom %> : 
-                <%= msg.Nom %> : 
-                <%= msg.Message %>
-            </li>
-        </ul>
+                <li>
+                    <%= msg.Prenom %> :
+                        <%= msg.Nom %> :
+                            <%= msg.Message %>
+                </li>
+            </ul>
             <% })%>
     </fieldset>
 

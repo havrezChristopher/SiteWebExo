@@ -1,8 +1,11 @@
 // on utilise le moteur de Template pour utiliser nos pages avec ejs
 // donc ici on l importe 
 const ejs = require('ejs');
+const querystring =require('querystring')
+const mssql =require('mssql')
 const { creatDbConnection } = require('../utils/db.utils');
-const { rows } = require('mssql');
+// const { rows } = require('mssql');
+
 
 // ici on récupères les paramettre de createServer
 const homeController = {
@@ -16,23 +19,23 @@ const homeController = {
         console.log(result);
         // on utilise le recorset pour aller chercher nos éléments et le .map pour filtrer ce que l'ont veux
         //formatage des donnée pour l utilisation (Mapping)
-        
-        const MessageSql = result.recordset.map(row =>{
-                return {
+
+        const MessageSql = result.recordset.map(row => {
+            return {
                 Prenom: row['Prenom'],
                 Nom: row['Nom'],
                 Message: row['Message']
-            }
+            };
         });
-       
-        
+
+
         //! Page d'accueil → Liste des message
 
         // Rendu de la page (Callback)
         //* En gros le callback est une fonction qui est passée comme argument à une autre fonction Async
         //* callback est exécutée après l'exécution de la fonction principale (generalements Fonction Async) 
         //? Pour obtenir le repertoire racine → "require.main.path" 
-        ejs.renderFile(`${require.main.path}/views/home/index.ejs`,{ MessageSql}, (error, pageRender) => {
+        ejs.renderFile(`${require.main.path}/views/home/index.ejs`, { MessageSql }, (error, pageRender) => {
             //* Erreur lors de la génération du rendu
             if (error) {
                 console.error(error);
@@ -67,6 +70,37 @@ const homeController = {
 
     messagePOST: (req, res) => {
         //! Traitement des données du formulaire
+        // Récupération des Donéee 
+        // on crée un evenement ici une variable body ou on va le lier a la req et lui dire d ajouter les data au body
+        let body='';
+        req.on('data', formData => {
+            body += formData.toString()
+        })
+        // Traitements des donnée 
+        // ici evenement qui ce déclanche quand on a fini de recupéré toute les donnée 
+        req.on('end',async()=>{
+            const data=querystring.parse(body)
+            console.log(body);
+            console.log(data);
+
+            const db = await creatDbConnection();
+//! ************************************************************************************************************************************* 
+//! *********************************  Requete Sql Préparé pour eviter la fails Sql "Injection Sql" *************************************
+//! ************************************************************************************************************************************* 
+            const sqlQuery = new mssql.PreparedStatement(db)
+            // Définition des types de paramettre
+            sqlQuery.input('nom',mssql.NVarChar)
+            sqlQuery.input('prenom',mssql.NVarChar)
+            sqlQuery.input('message',mssql.NVarChar)
+            // Préparation de  la requete 
+            await sqlQuery.prepare('INSERT INTO [Message] (Nom ,Prenom,Message) VALUES (@nom,@prenom,@message)')
+            // Execution de la requete
+            await sqlQuery.execute(data);
+            // redirection de la page D acceuil
+            res.writeHead(302,{location:'/'})
+            res.end();
+
+        })
 
     },
 
