@@ -4,8 +4,8 @@
   "description": "Exercices Recapitulatif NodeJs plus mise en place DB",
   "main": "server.js",
   "scripts": {
-    "start":"nodemon server.js" ,
-    "dev":"node server.js",
+    "prod": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,6 +19,7 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
-    "mssql": "^10.0.1"
+    "mssql": "^10.0.1",
+    "tedious": "^16.4.1"
   }
 }

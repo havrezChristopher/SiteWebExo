@@ -33,17 +33,20 @@ require('dotenv').config();
 const http = require('http');
 //! Mon Module Perso
 const homeController = require('./controllers/home.controller.js');
-// const Outils = require('./utils/db.utils');
+const dbUtils = require('./utils/db.utils.js');
 
 // Variable d'env
 // Destructuring ici aller chercher les éléments depuis { PORT }
 const { PORT } = process.env;
 
-// Test la connexion vers la DB
-// dbUtils.testDbConnection();
+//***Test la connexion vers la DB***
+dbUtils.testDbConnection();
 
 // Création du serveur
 const server = http.createServer((request, response) => {
+
+
+
 
     // Info de la requete
     // Info de la requete avec ce que l on va récupérer

@@ -9,14 +9,18 @@ const creatDbConnection = async () => {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
         server: process.env.DB_SERVER,
-        option: {
+        //!Fucking de (S) il manquait le (s) a options !!!!!
+        options: {
             // Permets d indiquer comme quoi le server est en train de tourner !
-            trustServerCertificate: true
+            trustServerCertificate: true,
+            
         }
-
+ 
     };
     // création d un objet (db)pour pouvoir la réutiliser et await dit quelle est async!
+    
     const db = await mssql.connect(sqlConfig);
+    
     // et on renvoie la db pour l objet !
     return db;
 };
@@ -26,18 +30,21 @@ const testDbConnection = async () => {
 
     try {
         const db = await creatDbConnection();
+        
         db.close();
         console.log('***Connection Réussie !***');
         return true;
-    } catch {
-        console.error(error);
+    } catch (error){
+      console.log("toto") 
+        console.error(error); 
         return false;
     }
+ 
+}; 
 
-};
-module.exports = {
-
+module.exports = { 
+ 
     creatDbConnection,
-    testDbConnection
+    testDbConnection  
 
-}
+}  

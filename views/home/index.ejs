@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>indexComment</title>
+    <title>indexCommentaires</title>
 </head>
 
 <body>
-    
+
     <fieldset>
-        <legend><h1>🍔 ***Acceuil Commentaire*** 🍔</h1></legend>
-        
+        <legend>
+            <h1>🍔 ***Acceuil Commentaire*** 🍔</h1>
+        </legend>
+        <% MessageSql.forEach (msg=> { %>
+
+            <ul>
+            <li>
+                <%= msg.Prenom %> : 
+                <%= msg.Nom %> : 
+                <%= msg.Message %>
+            </li>
+        </ul>
+            <% })%>
     </fieldset>
-
-
-    
 
 </body>
 
