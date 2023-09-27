@@ -1,10 +1,15 @@
 // on utilise le moteur de Template pour utiliser nos pages avec ejs
 // donc ici on l importe 
 const ejs = require('ejs');
-const querystring =require('querystring')
-const mssql =require('mssql')
+const querystring = require('querystring');
+const mssql = require('mssql');
 const { creatDbConnection } = require('../utils/db.utils');
-// const { rows } = require('mssql');
+const fs = require('fs');
+
+const imageToBase64 = (imagePath) => {
+    const bitmap = fs.readFileSync(imagePath);
+    return new Buffer.from(bitmap).toString('base64');
+    };
 
 
 // ici on récupères les paramettre de createServer
@@ -15,8 +20,8 @@ const homeController = {
         //Recupération des donnée de la DB
         const db = await creatDbConnection();
         // Récupérer les messages
-        const result = await db.query('SELECT * FROM Commentaires ');
-        console.log(result);
+        const result = await db.query('SELECT * FROM Commentaires');
+        
         // on utilise le recorset pour aller chercher nos éléments et le .map pour filtrer ce que l'ont veux
         //formatage des donnée pour l utilisation (Mapping)
 
@@ -24,9 +29,12 @@ const homeController = {
             return {
                 Prenom: row['Prenom'],
                 Nom: row['Nom'],
+                Note: row ['Note'],
+                Email: row['Email'],
                 Message: row['Message']
             };
         });
+
 
 
         //! Page d'accueil → Liste des message
@@ -72,37 +80,41 @@ const homeController = {
         //! Traitement des données du formulaire
         // Récupération des Donéee 
         // on crée un evenement ici une variable body ou on va le lier a la req et lui dire d ajouter les data au body
-        let body='';
+        let body = '';
         req.on('data', formData => {
-            body += formData.toString()
-        })
+            body += formData.toString();
+        });
         // Traitements des donnée 
         // ici evenement qui ce déclanche quand on a fini de recupéré toute les donnée 
-        req.on('end',async()=>{
-            const data=querystring.parse(body)
-            console.log(body);
-            console.log(data);
+        req.on('end', async () => {
+            const data = querystring.parse(body);
+            console.log('Body : ' , body);
+            console.log('Data : ' , data);
 
             const db = await creatDbConnection();
 //! ************************************************************************************************************************************* 
 //! *********************************  Requete Sql Préparé pour eviter la fails Sql "Injection Sql" *************************************
-//! ************************************************************************************************************************************* 
-            const sqlQuery = new mssql.PreparedStatement(db)
+            const sqlQuery = new mssql.PreparedStatement(db);           
+ //! ************************************************************************************************************************************* 
             // Définition des types de paramettre
-            sqlQuery.input('nom',mssql.NVarChar)
-            sqlQuery.input('prenom',mssql.NVarChar)
-            sqlQuery.input('message',mssql.NVarChar)
+            sqlQuery.input('nom', mssql.NVarChar);
+            sqlQuery.input('prenom', mssql.NVarChar);
+            sqlQuery.input('note', mssql.NVarChar);
+            sqlQuery.input('email', mssql.NVarChar);
+            sqlQuery.input('message', mssql.NVarChar);
             // Préparation de  la requete 
-            await sqlQuery.prepare('INSERT INTO [Message] (Nom ,Prenom,Message) VALUES (@nom,@prenom,@message)')
+            await sqlQuery.prepare('INSERT INTO Commentaires (Nom,Prenom,note,email,Message) VALUES (@nom,@prenom,@note,@email,@message)');
             // Execution de la requete
             await sqlQuery.execute(data);
             // redirection de la page D acceuil
-            res.writeHead(302,{location:'/'})
+            res.writeHead(302, { location: '/' });
             res.end();
 
-        })
+        });
 
     },
+
+    
 
     //! *********************************************Section*************************************************************************
     acceuil: (req, res) => {
@@ -126,12 +138,33 @@ const homeController = {
             });
 
     },
-    menu: (req, res) => {
-        //! Pour la Liste des plats (Pour chaque plat : Nom, briève description, prix)
+    //! Pour la Liste des plats (Pour chaque plat : Nom, briève description, prix)
+    
+    menu: async (req, res) => {
+        //Recupération des donnée de la DB
+        const db = await creatDbConnection();
+        // Récupérer les messages
+        
+        const result = await db.query('SELECT * FROM plats');
+        console.log(result);
+        // on utilise le recorset pour aller chercher nos éléments et le .map pour filtrer ce que l'ont veux
+        //formatage des donnée pour l utilisation (Mapping)
 
-        ejs.renderFile(`${require.main.path}/views/home/menu/menu.ejs`)
+        const MenuSql = result.recordset.map(row => {
+            return {
+                ID : row ['ID'],
+                Nom: row['Nom'],
+                Images: row ['Images'],
+                Description: row ['Description'],
+                BreveDescription: row['BreveDescription'],
+                Allergenes: row['Allergenes'],
+                Prix: row['Prix']
+            };
+        });  
+        const Images = imageToBase64(`${require.main.path}/views/home/menu/Images.jpeg`);
+        //TODO BEUG IMAGE
+        ejs.renderFile(`${require.main.path}/views/home/menu/menu.ejs`,{ Images })
             // Rendu de la page (Promise)
-
             .then(pageRender => {
                 //* Génération de la vue réussi !
                 res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -182,6 +215,7 @@ const homeController = {
 
     },
     //! *********************************************Section************************************************************************* 
+
 };
 //Ne pas oublier pour pouvoir l utiliser ailleur il sufira de le require depuis le fichier que l on veux 
 module.exports = homeController;

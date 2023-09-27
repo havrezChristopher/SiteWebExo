@@ -22,9 +22,11 @@
 
             <ul>
                 <li>
-                    <%= msg.Prenom %> :
-                        <%= msg.Nom %> :
-                            <%= msg.Message %>
+                    [<%= msg.Nom %>-
+                    <%= msg.Prenom %>] <br>
+                        Note: <%= msg.Note %> /10 <br>
+                        AdresseEmail : <%= msg.Email %> <br>
+                        Commentaire : <%= msg.Message %>
                 </li>
             </ul>
             <% })%>

@@ -12,45 +12,92 @@
         <a href="/pageInfo">Page Info</a>
         <a href="/">Commentaire</a>
         <a href="/message-add"> Ajouter Un Message</a>
+        <fieldset>
+            <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
+            <% MenuSql.forEach (me=> { %>
+    
+                <ul>
+                    <li>
+                        <%= me.ID %>
+                        <%= me.Nom %> <br>
+                         <!--  -->
+                         <img src='data:image/jpeg;base64,<%= me.Images %>' alt=""><br> 
+                        <!--  -->
+                        <%= me.Description%><br>
+                        <%= me.BreveDescription %><br>
+                        <%= me.Allergenes %><br>
+                        <!-- <%= me.Prix %><br> -->
+                    </li>
+                </ul>
+                <% })%>
+        </fieldset>
     <fieldset>
-        <legend><h1>🍔***Burger BBQ ***🍔</h1></legend>
-        <ul>
-        <li>Burger BBQ</li>
-        <li>Burger BBQ</li>
-        <li>10.49</li>
-    </ul>
+        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
+        <% MenuSql.forEach (me=> { %>
+
+            <ul>
+                <li>
+                    <%= me.ID %>
+                    <%= me.Nom %> <br>
+                    <!-- <%= me.Images %><br> -->
+                    <%= me.Description%><br>
+                    <%= me.BreveDescription %><br>
+                    <%= me.Allergenes %><br>
+                    <!-- <%= me.Prix %><br> -->
+                </li>
+            </ul>
+            <% })%>
     </fieldset>
     <fieldset>
-        <legend><h1>🍔*** Burger Classique***🍔</h1></legend>
-        <ul>
-        <li>Burger Classique</li>
-        <li>Burger Classique</li>
-        <li>9.99</li>
-    </ul>
+        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
+        <% MenuSql.forEach (me=> { %>
+
+            <ul>
+                <li>
+                    <%= me.ID %>
+                    <%= me.Nom %> <br>
+                    <!-- <%= me.Images %><br> -->
+                    <%= me.Description%><br>
+                    <%= me.BreveDescription %><br>
+                    <%= me.Allergenes %><br>
+                    <!-- <%= me.Prix %><br> -->
+                </li>
+            </ul>
+            <% })%>
     </fieldset>
     <fieldset>
-        <legend><h1>🍔*** Double Cheeseburger ***🍔</h1></legend>
-        <ul>
-        <li>Double Cheeseburger</li>
-        <li>Double Cheeseburger</li>
-        <li>11.99</li>
-    </ul>
+        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
+        <% MenuSql.forEach (me=> { %>
+
+            <ul>
+                <li>
+                    <%= me.ID %>
+                    <%= me.Nom %> <br>
+                    <!-- <%= me.Images %><br> -->
+                    <%= me.Description%><br>
+                    <%= me.BreveDescription %><br>
+                    <%= me.Allergenes %><br>
+                    <!-- <%= me.Prix %><br> -->
+                </li>
+            </ul>
+            <% })%>
     </fieldset>
     <fieldset>
-        <legend><h1>🍔*** Burger Épicé ***🍔</h1></legend>
-        <ul>
-        <li>Burger Épicé</li>
-        <li>Burger Épicé</li>
-        <li>9.99</li>
-    </ul>
-    </fieldset>
-    <fieldset>
-        <legend><h1>🍔*** Burger Végétarien ***🍔</h1></legend>
-        <ul>
-        <li>Burger Végétarien</li>
-        <li>Burger Végétarien</li>
-        <li>8.99</li>
-    </ul>
+        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
+        <% MenuSql.forEach (me=> { %>
+
+            <ul>
+                <li>
+                    <%= me.ID %>
+                    <%= me.Nom %> <br>
+                    <!-- <%= me.Images %><br> -->
+                    <%= me.Description%><br>
+                    <%= me.BreveDescription %><br>
+                    <%= me.Allergenes %><br>
+                    <!-- <%= me.Prix %><br> -->
+                </li>
+            </ul>
+            <% })%>
     </fieldset>
 </body>
 </html>

@@ -13,20 +13,20 @@
 <a href="/menuDetail">menu Details</a>
 <a href="/pageInfo">Page Info</a>
 <a href="/">Commentaire</a>
-    <form method="post">
+    <form method="post" action="/message-add">
         <fieldset>
             <legend>
                 <h1>Formulaire</h1>
             </legend>
             <h3>Ajouter un Messages</h3>
             <div>
-                <label for="firstName">Nom :</label>
-                <input type="text" name="firstName" id="firstName" required>
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" required>
             </div>
 
             <div>
-                <label for="lastName">Prénoms :</label>
-                <input type="text" name="lastName" id="lastName" required>
+                <label for="prenom">Prénoms :</label>
+                <input type="text" name="prenom" id="prenom" required>
             </div>
             <div>
                 <label for="note">Entrer un note Sur 10/10:</label>
@@ -39,8 +39,8 @@
             </div>
 
             <div>
-                <label for="content">Message :</label>
-                <textarea name="content" id="content" style="resize: none;" cols="30" rows="10" wrap="soft"
+                <label for="message">Message :</label>
+                <textarea name="message" id="message" style="resize: none;" cols="30" rows="10" wrap="soft"
                     placeholder="Entrez votre Message ici "  required></textarea>
             </div>
             <div>

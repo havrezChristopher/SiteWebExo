@@ -8,7 +8,7 @@
 //  /comment/add : Page qui permet à un client d'ajouter un commentaire
 // Les plats et les commentaires doivent être stockés en base de données.
 // Remarque : Les plats ne sont pas modifiables depuis le site Web.
-
+//! chaque menu va etre associer a son id (quand au clic du menu)envoie de l id a la requete de l id et depuis l id 
 // Modèle des données 
 //  • Un plat
 //    - Nom du plat
@@ -44,9 +44,6 @@ dbUtils.testDbConnection();
 
 // Création du serveur
 const server = http.createServer((request, response) => {
-
-
-
 
     // Info de la requete
     // Info de la requete avec ce que l on va récupérer
