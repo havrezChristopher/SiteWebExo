@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MenuDetail</title>
+
+    <title>🍔 ***MenuDetail*** 🍔</title>
 </head>
 
 <body>
-    <a href="/acceuil">Acceuil</a>
-    <a href="/menu">menu Details</a>
-    <a href="/">Commentaire</a>
-    <a href="/message-add"> Ajouter Un Message</a>
-    <a href="/pageInfo">Page Info</a>
-
+    <nav>
+        <div class="logo">
+            <a href="#">Mon Logo</a>
+        </div>
+        <ul class="menu">
+            <li><a href="/acceuil">Accueil</a></li>
+            <li><a href="/menu">Nos Burger</a></li>
+            <li><a href="/">Commentaire</a></li>
+            <li><a href="/message-add">Ajouter un Message</a></li>
+            <li><a href="/pageInfo">Contact</a></li>
+        </ul>
+    </nav>
     <% MenuDetailSql.forEach (me=> { %>
         <legend><h1>🍔*** <%= me.Nom %>***🍔</h1></legend>
 
