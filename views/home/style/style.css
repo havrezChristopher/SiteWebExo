@@ -1,4 +1,5 @@
-Réinitialisation des styles par défaut
+/* Réinitialisation des styles par défaut */
+/* Réinitialise les marges et les rembourrages par défaut pour certains éléments HTML */
 body,
 h1,
 h2,
@@ -10,133 +11,160 @@ fieldset {
 }
 
 /* Styles globaux */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: Arial, sans-serif; /* Définit la police de caractères */
+    background-color: #f0f0f0; /* Définit la couleur de fond */
+    color: #333; /* Définit la couleur du texte */
 }
 
+/* Conteneur principal */
+/* Styles pour le conteneur principal de la page */
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 960px; /* Définit la largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur horizontalement */
+    padding: 20px; /* Ajoute un remplissage intérieur */
+    background-color: #fff; /* Définit la couleur de fond */
+    border-radius: 5px; /* Arrondit les coins */
+    box-shadow: 0 0 10px rgba(244, 114, 8, 0.477); /* Ajoute une ombre */
+    margin: 20px 0; /* Ajoute de la marge en haut et en bas */
 }
 
-/* Liens */
+/* Styles pour les liens */
 a {
-    text-decoration: none;
-    color: #0077b6;
+    text-decoration: none; /* Supprime la décoration de soulignement des liens */
+    color: #0077b6; /* Définit la couleur du texte des liens */
 }
 
-/* Titres */
+
+/* Styles pour les titres */
 h1 {
-    font-size: 2rem;
-    text-align: center;
-    margin: 20px 0;
+    font-size: 2rem; /* Définit la taille de police */
+    text-align: center; /* Centre le texte */
+    margin: 20px 0; /* Ajoute de la marge en haut et en bas */
 }
 
 h2 {
-    font-size: 1.5rem;
-    margin: 10px 0;
+    font-size: 1.5rem; /* Définit la taille de police */
+    margin: 10px 0; /* Ajoute de la marge en haut et en bas */
 }
 
 h3 {
-    font-size: 1.2rem;
-    margin: 10px 0;
+    font-size: 1.2rem; /* Définit la taille de police */
+    margin: 10px 0; /* Ajoute de la marge en haut et en bas */
 }
 
-/* Contenu principal */
+/* Styles pour le contenu principal de la page */
 fieldset {
-    border: 1px solid #ccc;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
+    border: 1px solid #ccc; /* Ajoute une bordure */
+    background-color: #fff; /* Définit la couleur de fond */
+    padding: 20px; /* Ajoute un remplissage intérieur */
+    border-radius: 5px; /* Arrondit les coins */
+    box-shadow: 0 0 10px rgba(244, 114, 8, 0.477); /* Ajoute une ombre */
+    margin: 20px 0; /* Ajoute de la marge en haut et en bas */
 }
 
 article {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin-bottom: 20px;
+    font-size: 1rem; /* Définit la taille de police */
+    line-height: 1.4; /* Définit la hauteur de ligne */
+    margin-bottom: 20px; /* Ajoute de la marge en bas */
 }
 
-/* Médias */
+
+/* Styles pour les médias, comme les images */
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    max-width: 100%; /* Définit la largeur maximale à 100% */
+    height: auto; /* Maintient le rapport hauteur/largeur */
+    display: block; /* Supprime l'espace vide sous les images */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
 
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    h3 {
-        font-size: 1rem;
-    }
-
-    article {
-        font-size: 0.9rem;
-    }
-}
-/* Styles globaux */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-}
-
-/* Barre de navigation */
+/* Styles pour la barre de navigation */
 nav {
-    background-color: #0077b6; /* Couleur de fond de la barre de navigation */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+    background-color: #d18202; /* Définit la couleur de fond de la barre de navigation */
+    display: flex; /* Utilise la disposition flexbox */
+    justify-content: space-between; /* Ajoute de l'espace entre les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    padding: 10px 20px; /* Ajoute un remplissage intérieur */
+    width: 100%; /* Occupe toute la largeur */
+   /* max-width: 960px;  Définit une largeur maximale */
 }
 
-/* Logo */
+/* Styles pour le logo */
 .logo a {
-    color: #fff; /* Couleur du texte du logo */
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
+    color: #fff; /* Définit la couleur du texte du logo */
+    text-decoration: none; /* Supprime la décoration de soulignement */
+    font-size: 1.5rem; /* Définit la taille de police */
+    font-weight: bold; /* Définit l'épaisseur de police en gras */
 }
 
-/* Menu */
+/* Styles pour le menu */
 .menu {
-    list-style: none;
-    display: flex;
+    list-style: none; /* Supprime les puces de liste */
+    display: flex; /* Utilise la disposition flexbox */
 }
 
 .menu li {
-    margin-right: 20px;
+    margin-right: 20px; /* Ajoute de la marge à droite des éléments de liste */
 }
 
 .menu li:last-child {
-    margin-right: 0;
+    margin-right: 0; /* Supprime la marge à droite du dernier élément de liste */
 }
 
 .menu a {
-    color: #fff; /* Couleur du texte du menu */
-    text-decoration: none;
-    font-size: 1rem;
+    color: #ffffff; /* Définit la couleur du texte du menu */
+    text-decoration: none; /* Supprime la décoration de soulignement des liens */
+    font-size: 1rem; /* Définit la taille de police */
 }
 
-/* Changement de couleur au survol des liens */
+/* Styles pour le changement de couleur au survol des liens */
 .menu a:hover {
-    color: #ff6b6b; /* Couleur au survol des liens */
-    transition: color 0.3s ease-in-out;
+    color: #ff3c3c; /* Définit la couleur au survol des liens */
+    transition: color 0.3s ease-in-out; /* Ajoute une transition en douceur */
+}
+
+
+/* Styles pour le formulaire */
+.container {
+    max-width: 600px; /* Définit la largeur maximale du formulaire */
+    margin: 0 auto; /* Centre le formulaire horizontalement */
+    padding: 20px; /* Ajoute un remplissage intérieur */
+    background-color: #fff; /* Définit la couleur de fond du formulaire */
+    border-radius: 5px; /* Arrondit les coins du formulaire */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Ajoute de la marge en bas des groupes de formulaire */
+}
+
+label {
+    display: block; /* Affiche les étiquettes en bloc */
+    font-weight: bold; /* Met en gras le texte des étiquettes */
+    margin-bottom: 5px; /* Ajoute de la marge en bas des étiquettes */
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%; /* Remplit la largeur du conteneur parent */
+    padding: 10px; /* Ajoute un remplissage intérieur aux champs de formulaire */
+    border: 1px solid #ccc; /* Ajoute une bordure aux champs de formulaire */
+    border-radius: 5px; /* Arrondit les coins des champs de formulaire */
+    font-size: 1rem; /* Définit la taille de police */
+}
+
+button {
+    background-color: #0077b6; /* Définit la couleur de fond du bouton */
+    color: #fff; /* Définit la couleur du texte du bouton */
+    padding: 10px 20px; /* Ajoute un remplissage au bouton */
+    border: none; /* Supprime la bordure du bouton */
+    border-radius: 5px; /* Arrondit les coins du bouton */
+    cursor: pointer; /* Définit le curseur de la souris en pointeur */
+    font-size: 1rem; /* Définit la taille de police */
+}
+
+button:hover {
+    background-color: #ff6b6b; /* Définit la couleur au survol du bouton */
 }
