@@ -161,8 +161,9 @@ const homeController = {
                 Allergenes: row['Allergenes']
             };
         });
-        const Images = imageToBase64(`${require.main.path}/views/home/menu/public/image/burger_BBQ.jpeg`);
-        //TODO BEUG IMAGE
+        //TODO Lier mais images a ma Db 
+        const Images = imageToBase64(`${require.main.path}/views/home/menu/public/image/burger_classiques.jpeg`);
+
         ejs.renderFile(`${require.main.path}/views/home/menu/menu.ejs`, { Images, MenuSql })
             // Rendu de la page (Promise)
             .then(pageRender => {
