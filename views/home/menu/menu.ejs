@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%-
-
-    '<style>'
-    
-    + include(`../style/style.css`)
-    
-    + '</style>'
-    
-    %>
-    <title>🍔 ***Menu*** 🍔</title>
+    <%- '<style>' + include(`../style/style.css`) + '</style>' %>
+        <title>🍔 ***Menu*** 🍔</title>
 </head>
-<body>      
+
+<body>
     <nav>
         <div class="logo">
-            <a href="#">Mon Logo</a>
+            <a href="../menu/public/image/logo.png">Mon Logo</a>
         </div>
         <ul class="menu">
             <li><a href="/acceuil">Accueil</a></li>
@@ -27,27 +21,32 @@
             <li><a href="/pageInfo">Contact</a></li>
         </ul>
     </nav>
-        <fieldset>
-            <% MenuSql.forEach (me=> { %>
-            <legend><h1>🍔*** <%= me.Nom %>***🍔</h1></legend>
-    
-                <ul>
-                    <li>
-                        
-                         <br>
-                         <!-- insertion Image Convertie -->
-                         <img src='data:images/jpeg;base64, <%= Images %>' alt=""><br> 
-                        <!--  -->
-                        <%= me.Description%><br>
-                        <%= me.BreveDescription %><br>
-                        <%= me.Prix %><br> 
-                        <%= me.Allergenes %><br>
-                        <a href="/menu-details?ID=<%= me.ID%>"><%= me.Nom %><%= me.ID%>"></a> 
-                    </li>
-                </ul>
-                <% })%>
+    <fieldset>
+        <% MenuSql.forEach (me=> { %>
+            <legend>
+                <h1>🍔*** <%= me.Nom %>***🍔</h1>
+            </legend>
 
-        </fieldset>
-    
+            <ul>
+                <li>
+
+                    <br>
+                    <!-- insertion Image Convertie -->
+                    <img src='data:images/jpeg;base64, <%= Images %>' alt="Hamburger"><br>
+                    <!--  -->
+                    <%= me.Description%><br>
+                        <%= me.BreveDescription %><br>
+                            <%= me.Prix %><br>
+                                <%= me.Allergenes %><br>
+                                    <a href="/menu-details?ID=<%= me.ID%>">
+                                        <%= me.Nom %>
+                                    </a>
+                </li>
+            </ul>
+            <% })%>
+
+    </fieldset>
+
 </body>
+
 </html>

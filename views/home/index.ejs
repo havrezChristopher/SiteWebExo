@@ -4,16 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%-
-
-    '<style>'
-    
-    + include(`./style/style.css`)
-    
-    + '</style>'
-    
-    %>
-    <title>🍔 ***indexCommentaires*** 🍔</title>
+    <%- '<style>' + include(`./style/style.css`) + '</style>' %>
+        <title>🍔 ***indexCommentaires*** 🍔</title>
 </head>
 
 <body>
@@ -29,7 +21,7 @@
             <li><a href="/pageInfo">Contact</a></li>
         </ul>
     </nav>
-  
+
     <fieldset>
         <legend>
             <h1>🍔 ***Acceuil Commentaire*** 🍔</h1>
@@ -39,10 +31,10 @@
             <ul>
                 <li>
                     [<%= msg.Nom %>-
-                    <%= msg.Prenom %>] <br>
-                        Note: <%= msg.Note %> /10 <br>
-                        AdresseEmail : <%= msg.Email %> <br>
-                        Commentaire : <%= msg.Message %>
+                        <%= msg.Prenom %>] <br>
+                            Note: <%= msg.Note %> /10 <br>
+                                AdresseEmail : <%= msg.Email %> <br>
+                                    Commentaire : <%= msg.Message %>
                 </li>
             </ul>
             <% })%>

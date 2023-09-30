@@ -1,4 +1,3 @@
-/* Réinitialisation des styles par défaut */
 /* Réinitialise les marges et les rembourrages par défaut pour certains éléments HTML */
 body,
 h1,
@@ -13,158 +12,230 @@ fieldset {
 /* Styles globaux */
 
 body {
-    font-family: Arial, sans-serif; /* Définit la police de caractères */
-    background-color: #f0f0f0; /* Définit la couleur de fond */
-    color: #333; /* Définit la couleur du texte */
+    font-family: Arial, sans-serif;
+    /* Définit la police de caractères */
+    background-color: #f0f0f0;
+    /* Définit la couleur de fond */
+    color: #333;
+    /* Définit la couleur du texte */
 }
 
-/* Conteneur principal */
 /* Styles pour le conteneur principal de la page */
 .container {
-    max-width: 960px; /* Définit la largeur maximale du conteneur */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
-    padding: 20px; /* Ajoute un remplissage intérieur */
-    background-color: #fff; /* Définit la couleur de fond */
-    border-radius: 5px; /* Arrondit les coins */
-    box-shadow: 0 0 10px rgba(244, 114, 8, 0.477); /* Ajoute une ombre */
-    margin: 20px 0; /* Ajoute de la marge en haut et en bas */
+    max-width: 960px;
+    /* Définit la largeur maximale du conteneur */
+    margin: 0 auto;
+    /* Centre le conteneur horizontalement */
+    padding: 20px;
+    /* Ajoute un remplissage intérieur */
+    background-color: #fff;
+    /* Définit la couleur de fond */
+    border-radius: 5px;
+    /* Arrondit les coins */
+    box-shadow: 0 0 10px rgba(244, 114, 8, 0.477);
+    /* Ajoute une ombre */
+    margin: 20px 0;
+    /* Ajoute de la marge en haut et en bas */
 }
 
 /* Styles pour les liens */
 a {
-    text-decoration: none; /* Supprime la décoration de soulignement des liens */
-    color: #0077b6; /* Définit la couleur du texte des liens */
+    text-decoration: none;
+    /* Supprime la décoration de soulignement des liens */
+    color: #0077b6;
+    /* Définit la couleur du texte des liens */
 }
 
 
 /* Styles pour les titres */
 h1 {
-    font-size: 2rem; /* Définit la taille de police */
-    text-align: center; /* Centre le texte */
-    margin: 20px 0; /* Ajoute de la marge en haut et en bas */
+    font-size: 2rem;
+    /* Définit la taille de police */
+    text-align: center;
+    /* Centre le texte */
+    margin: 20px 0;
+    /* Ajoute de la marge en haut et en bas */
 }
 
 h2 {
-    font-size: 1.5rem; /* Définit la taille de police */
-    margin: 10px 0; /* Ajoute de la marge en haut et en bas */
+    font-size: 1.5rem;
+    /* Définit la taille de police */
+    margin: 10px 0;
+    /* Ajoute de la marge en haut et en bas */
 }
 
 h3 {
-    font-size: 1.2rem; /* Définit la taille de police */
-    margin: 10px 0; /* Ajoute de la marge en haut et en bas */
+    font-size: 1.2rem;
+    /* Définit la taille de police */
+    margin: 10px 0;
+    /* Ajoute de la marge en haut et en bas */
 }
 
 /* Styles pour le contenu principal de la page */
 fieldset {
-    border: 1px solid #ccc; /* Ajoute une bordure */
-    background-color: #fff; /* Définit la couleur de fond */
-    padding: 20px; /* Ajoute un remplissage intérieur */
-    border-radius: 5px; /* Arrondit les coins */
-    box-shadow: 0 0 10px rgba(244, 114, 8, 0.477); /* Ajoute une ombre */
-    margin: 20px 0; /* Ajoute de la marge en haut et en bas */
+    border: 1px solid #ccc;
+    /* Ajoute une bordure */
+    background-color: #fff;
+    /* Définit la couleur de fond */
+    padding: 20px;
+    /* Ajoute un remplissage intérieur */
+    border-radius: 5px;
+    /* Arrondit les coins */
+    box-shadow: 0 0 10px rgba(244, 114, 8, 0.477);
+    /* Ajoute une ombre */
+    margin: 20px 0;
+    /* Ajoute de la marge en haut et en bas */
 }
 
 article {
-    font-size: 1rem; /* Définit la taille de police */
-    line-height: 1.4; /* Définit la hauteur de ligne */
-    margin-bottom: 20px; /* Ajoute de la marge en bas */
+    font-size: 1rem;
+    /* Définit la taille de police */
+    line-height: 1.4;
+    /* Définit la hauteur de ligne */
+    margin-bottom: 20px;
+    /* Ajoute de la marge en bas */
 }
 
 
 /* Styles pour les médias, comme les images */
 img {
-    max-width: 100%; /* Définit la largeur maximale à 100% */
-    height: auto; /* Maintient le rapport hauteur/largeur */
-    display: block; /* Supprime l'espace vide sous les images */
+    max-width: 100%;
+    /* Définit la largeur maximale à 100% */
+    height: auto;
+    /* Maintient le rapport hauteur/largeur */
+    display: block;
+    /* Supprime l'espace vide sous les images */
 }
 
 
 /* Styles pour la barre de navigation */
 nav {
-    background-color: #d18202; /* Définit la couleur de fond de la barre de navigation */
-    display: flex; /* Utilise la disposition flexbox */
-    justify-content: space-between; /* Ajoute de l'espace entre les éléments */
-    align-items: center; /* Centre verticalement les éléments */
-    padding: 10px 20px; /* Ajoute un remplissage intérieur */
-    width: 100%; /* Occupe toute la largeur */
-   /* max-width: 960px;  Définit une largeur maximale */
+    background-color: #d18202;
+    /* Définit la couleur de fond de la barre de navigation */
+    display: flex;
+    /* Utilise la disposition flexbox */
+    justify-content: space-between;
+    /* Ajoute de l'espace entre les éléments */
+    align-items: center;
+    /* Centre verticalement les éléments */
+    padding: 10px 20px;
+    /* Ajoute un remplissage intérieur */
+    width: 100%;
+    /* Occupe toute la largeur */
+    /* max-width: 960px;  Définit une largeur maximale */
 }
 
 /* Styles pour le logo */
 .logo a {
-    color: #fff; /* Définit la couleur du texte du logo */
-    text-decoration: none; /* Supprime la décoration de soulignement */
-    font-size: 1.5rem; /* Définit la taille de police */
-    font-weight: bold; /* Définit l'épaisseur de police en gras */
+    color: #fff;
+    /* Définit la couleur du texte du logo */
+    text-decoration: none;
+    /* Supprime la décoration de soulignement */
+    font-size: 1.5rem;
+    /* Définit la taille de police */
+    font-weight: bold;
+    /* Définit l'épaisseur de police en gras */
 }
 
 /* Styles pour le menu */
 .menu {
-    list-style: none; /* Supprime les puces de liste */
-    display: flex; /* Utilise la disposition flexbox */
+    list-style: none;
+    /* Supprime les puces de liste */
+    display: flex;
+    /* Utilise la disposition flexbox */
 }
 
 .menu li {
-    margin-right: 20px; /* Ajoute de la marge à droite des éléments de liste */
+    margin-right: 20px;
+    /* Ajoute de la marge à droite des éléments de liste */
 }
 
 .menu li:last-child {
-    margin-right: 0; /* Supprime la marge à droite du dernier élément de liste */
+    margin-right: 0;
+    /* Supprime la marge à droite du dernier élément de liste */
 }
 
 .menu a {
-    color: #ffffff; /* Définit la couleur du texte du menu */
-    text-decoration: none; /* Supprime la décoration de soulignement des liens */
-    font-size: 1rem; /* Définit la taille de police */
+    color: #ffffff;
+    /* Définit la couleur du texte du menu */
+    text-decoration: none;
+    /* Supprime la décoration de soulignement des liens */
+    font-size: 1rem;
+    /* Définit la taille de police */
 }
 
 /* Styles pour le changement de couleur au survol des liens */
 .menu a:hover {
-    color: #ff3c3c; /* Définit la couleur au survol des liens */
-    transition: color 0.3s ease-in-out; /* Ajoute une transition en douceur */
+    color: #ff3c3c;
+    /* Définit la couleur au survol des liens */
+    transition: color 0.3s ease-in-out;
+    /* Ajoute une transition en douceur */
 }
 
 
 /* Styles pour le formulaire */
 .container {
-    max-width: 600px; /* Définit la largeur maximale du formulaire */
-    margin: 0 auto; /* Centre le formulaire horizontalement */
-    padding: 20px; /* Ajoute un remplissage intérieur */
-    background-color: #fff; /* Définit la couleur de fond du formulaire */
-    border-radius: 5px; /* Arrondit les coins du formulaire */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre */
+    max-width: 600px;
+    /* Définit la largeur maximale du formulaire */
+    margin: 0 auto;
+    /* Centre le formulaire horizontalement */
+    padding: 20px;
+    /* Ajoute un remplissage intérieur */
+    background-color: #fff;
+    /* Définit la couleur de fond du formulaire */
+    border-radius: 5px;
+    /* Arrondit les coins du formulaire */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Ajoute une ombre */
 }
 
 .form-group {
-    margin-bottom: 20px; /* Ajoute de la marge en bas des groupes de formulaire */
+    margin-bottom: 20px;
+    /* Ajoute de la marge en bas des groupes de formulaire */
 }
 
 label {
-    display: block; /* Affiche les étiquettes en bloc */
-    font-weight: bold; /* Met en gras le texte des étiquettes */
-    margin-bottom: 5px; /* Ajoute de la marge en bas des étiquettes */
+    display: block;
+    /* Affiche les étiquettes en bloc */
+    font-weight: bold;
+    /* Met en gras le texte des étiquettes */
+    margin-bottom: 5px;
+    /* Ajoute de la marge en bas des étiquettes */
 }
 
 input[type="text"],
 input[type="number"],
 textarea {
-    width: 100%; /* Remplit la largeur du conteneur parent */
-    padding: 10px; /* Ajoute un remplissage intérieur aux champs de formulaire */
-    border: 1px solid #ccc; /* Ajoute une bordure aux champs de formulaire */
-    border-radius: 5px; /* Arrondit les coins des champs de formulaire */
-    font-size: 1rem; /* Définit la taille de police */
+    width: 100%;
+    /* Remplit la largeur du conteneur parent */
+    padding: 10px;
+    /* Ajoute un remplissage intérieur aux champs de formulaire */
+    border: 1px solid #ccc;
+    /* Ajoute une bordure aux champs de formulaire */
+    border-radius: 5px;
+    /* Arrondit les coins des champs de formulaire */
+    font-size: 1rem;
+    /* Définit la taille de police */
 }
 
 button {
-    background-color: #0077b6; /* Définit la couleur de fond du bouton */
-    color: #fff; /* Définit la couleur du texte du bouton */
-    padding: 10px 20px; /* Ajoute un remplissage au bouton */
-    border: none; /* Supprime la bordure du bouton */
-    border-radius: 5px; /* Arrondit les coins du bouton */
-    cursor: pointer; /* Définit le curseur de la souris en pointeur */
-    font-size: 1rem; /* Définit la taille de police */
+    background-color: #0077b6;
+    /* Définit la couleur de fond du bouton */
+    color: #fff;
+    /* Définit la couleur du texte du bouton */
+    padding: 10px 20px;
+    /* Ajoute un remplissage au bouton */
+    border: none;
+    /* Supprime la bordure du bouton */
+    border-radius: 5px;
+    /* Arrondit les coins du bouton */
+    cursor: pointer;
+    /* Définit le curseur de la souris en pointeur */
+    font-size: 1rem;
+    /* Définit la taille de police */
 }
 
 button:hover {
-    background-color: #ff6b6b; /* Définit la couleur au survol du bouton */
+    background-color: #ff6b6b;
+    /* Définit la couleur au survol du bouton */
 }

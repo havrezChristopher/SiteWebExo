@@ -4,16 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%-
-
-    '<style>'
-    
-    + include(`../style/style.css`)
-    
-    + '</style>'
-    
-    %>
-    <title>🍔 ***MenuDetail*** 🍔</title>
+    <%- '<style>' + include(`../style/style.css`) + '</style>' %>
+        <title>🍔 ***MenuDetail*** 🍔</title>
 </head>
 
 <body>
@@ -30,84 +22,25 @@
         </ul>
     </nav>
     <% MenuDetailSql.forEach (me=> { %>
-        <legend><h1>🍔*** <%= me.Nom %>***🍔</h1></legend>
+        <legend>
+            <h1>🍔*** <%= me.Nom %>***🍔</h1>
+        </legend>
 
-            <ul>
-                <li>
-                    <%= me.ID %>
+        <ul>
+            <li>
+                <%= me.ID %>
                     <%= me.Nom %>
-                     <br>
-                     <img src='data:images/jpeg;base64, <%= Images %>' alt=""><br> 
-                    <%= me.Description%><br>
-                    <%= me.BreveDescription %><br>
-                    <%= me.Allergenes %><br>
-                    <%= me.Prix %><br> 
-                    <!-- <a href="menu?ID=<%= me.ID %>" ><%= me.Nom %></a>  -->
-                </li>
-            </ul>
-            <% })%>
+                        <br>
+                        <img src='data:images/jpeg;base64, <%= Images %>' alt="Hamburger"><br>
+                        <%= me.Description%><br>
+                            <%= me.BreveDescription %><br>
+                                <%= me.Allergenes %><br>
+                                    <%= me.Prix %><br>
+                                        <!-- <a href="menu?ID=<%= me.ID %>" ><%= me.Nom %></a>  -->
+            </li>
+        </ul>
+        <% })%>
 
-
-<!--    
-        <legend>
-            <h1>🍔***Burger BBQ ***🍔</h1>
-        </legend>
-        <ul>
-            <li>Burger BBQ</li>
-            <li>description complète</li>
-            <li>image</li>
-            <li>10.49</li>
-            <li>allergène</li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend>
-            <h1>🍔*** Burger Classique***🍔</h1>
-        </legend>
-        <ul>
-            <li>Burger Classique</li>
-            <li>description complète</li>
-            <li>image</li>
-            <li>9.99</li>
-            <li>allergène</li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend>
-            <h1>🍔*** Double Cheeseburger ***🍔</h1>
-        </legend>
-        <ul>
-            <li>Double Cheeseburger</li>
-            <li>description complète</li>
-            <li>image</li>
-            <li>11.99</li>
-            <li>allergène</li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend>
-            <h1>🍔*** Burger Épicé ***🍔</h1>
-        </legend>
-        <ul>
-            <li>Burger Épicé</li>
-            <li>description complète</li>
-            <li>image</li>
-            <li>9.99</li>
-            <li>allergène</li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend>
-            <h1>🍔*** Burger Végétarien ***🍔
-        </legend>
-        <ul>
-            <li>Burger Végétarien</li>
-            <li>description complète</li>
-            <li>image</li>
-            <li>8.99</li>
-            <li>allergène</li>
-        </ul>
-    </fieldset> -->
 </body>
 
 </html>

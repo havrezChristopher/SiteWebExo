@@ -50,35 +50,35 @@ const server = http.createServer((request, response) => {
     // Info de la requete
     // Info de la requete avec ce que l on va récupérer
     console.log(`url: "${request.url}" • method: "${request.method}"`);
-        const parsed = url.parse(request.url);
-        const query  = queryString.parse(parsed.query); 
-         const ID = query.ID
-    console.log("Valeur" + ID)
+    const parsed = url.parse(request.url);
+    const query = queryString.parse(parsed.query);
+    const ID = query.ID;
+    console.log("Valeur" + ID);
     // Routing simple (Méthode plus complexe vu avec "Express")
-    if(request.url === '/') {
+    if (request.url === '/') {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
         homeController.index(request, response);
     }
-    else if(request.url === '/message-add' && request.method === "GET") {
+    else if (request.url === '/message-add' && request.method === "GET") {
         homeController.messageGET(request, response);
     }
-    else if(request.url === '/message-add' && request.method === "POST") {
+    else if (request.url === '/message-add' && request.method === "POST") {
         homeController.messagePOST(request, response);
     }
     //! **********************************************Section****************************************************************** 
-    else if(request.url === '/acceuil') {
+    else if (request.url === '/acceuil') {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
         homeController.acceuil(request, response);
     }
-    else if(request.url === '/menu') {
+    else if (request.url === '/menu') {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
         homeController.menu(request, response);
     }
-    else if(request.url === "/menu-details?ID=" + ID) {
+    else if (request.url === "/menu-details?ID=" + ID) {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
         homeController.menuDetail(request, response, ID);
     }
-    else if(request.url === '/pageInfo') {
+    else if (request.url === '/pageInfo') {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
         homeController.pageInfo(request, response);
     }
@@ -86,10 +86,10 @@ const server = http.createServer((request, response) => {
     else {
         // Génération simple d'une page d'erreur 404 !
         response.writeHead(404, { "Content-Type": "text/html" });
-        response.end("<h1>Page not found</h1>")
+        response.end("<h1>Page not found</h1>");
     }
 
-    
+
 
 
 
