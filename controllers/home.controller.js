@@ -5,11 +5,12 @@ const querystring = require('querystring');
 const mssql = require('mssql');
 const { creatDbConnection } = require('../utils/db.utils');
 const fs = require('fs');
+const { url } = require('inspector');
 
 const imageToBase64 = (imagePath) => {
     const bitmap = fs.readFileSync(imagePath);
     return new Buffer.from(bitmap).toString('base64');
-    };
+};
 
 
 // ici on récupères les paramettre de createServer
@@ -21,7 +22,7 @@ const homeController = {
         const db = await creatDbConnection();
         // Récupérer les messages
         const result = await db.query('SELECT * FROM Commentaires');
-        
+
         // on utilise le recorset pour aller chercher nos éléments et le .map pour filtrer ce que l'ont veux
         //formatage des donnée pour l utilisation (Mapping)
 
@@ -29,7 +30,7 @@ const homeController = {
             return {
                 Prenom: row['Prenom'],
                 Nom: row['Nom'],
-                Note: row ['Note'],
+                Note: row['Note'],
                 Email: row['Email'],
                 Message: row['Message']
             };
@@ -88,14 +89,14 @@ const homeController = {
         // ici evenement qui ce déclanche quand on a fini de recupéré toute les donnée 
         req.on('end', async () => {
             const data = querystring.parse(body);
-            console.log('Body : ' , body);
-            console.log('Data : ' , data);
+            console.log('Body : ', body);
+            console.log('Data : ', data);
 
             const db = await creatDbConnection();
-//! ************************************************************************************************************************************* 
-//! *********************************  Requete Sql Préparé pour eviter la fails Sql "Injection Sql" *************************************
-            const sqlQuery = new mssql.PreparedStatement(db);           
- //! ************************************************************************************************************************************* 
+            //! ************************************************************************************************************************************* 
+            //! *********************************  Requete Sql Préparé pour eviter la fails Sql "Injection Sql" *************************************
+            const sqlQuery = new mssql.PreparedStatement(db);
+            //! ************************************************************************************************************************************* 
             // Définition des types de paramettre
             sqlQuery.input('nom', mssql.NVarChar);
             sqlQuery.input('prenom', mssql.NVarChar);
@@ -114,7 +115,7 @@ const homeController = {
 
     },
 
-    
+
 
     //! *********************************************Section*************************************************************************
     acceuil: (req, res) => {
@@ -139,12 +140,11 @@ const homeController = {
 
     },
     //! Pour la Liste des plats (Pour chaque plat : Nom, briève description, prix)
-    
+
     menu: async (req, res) => {
         //Recupération des donnée de la DB
         const db = await creatDbConnection();
         // Récupérer les messages
-        
         const result = await db.query('SELECT * FROM plats');
         console.log(result);
         // on utilise le recorset pour aller chercher nos éléments et le .map pour filtrer ce que l'ont veux
@@ -152,18 +152,18 @@ const homeController = {
 
         const MenuSql = result.recordset.map(row => {
             return {
-                ID : row ['ID'],
+                ID: row['ID'],
                 Nom: row['Nom'],
-                Images: row ['Images'],
-                Description: row ['Description'],
+                Images: row['Images'],
+                Description: row['Description'],
                 BreveDescription: row['BreveDescription'],
-                Allergenes: row['Allergenes'],
-                Prix: row['Prix']
+                Prix: row['Prix'],
+                Allergenes: row['Allergenes']
             };
-        });  
-        const Images = imageToBase64(`${require.main.path}/views/home/menu/Images.jpeg`);
+        });
+        const Images = imageToBase64(`${require.main.path}/views/home/menu/public/image/burger_BBQ.jpeg`);
         //TODO BEUG IMAGE
-        ejs.renderFile(`${require.main.path}/views/home/menu/menu.ejs`,{ Images })
+        ejs.renderFile(`${require.main.path}/views/home/menu/menu.ejs`, { Images, MenuSql })
             // Rendu de la page (Promise)
             .then(pageRender => {
                 //* Génération de la vue réussi !
@@ -176,12 +176,31 @@ const homeController = {
                 res.end();
             });
 
+
     },
-    menuDetail: (req, res) => {
+    menuDetail: async(req, res, ID) => {
         //! Pour le Detail d'un plat (Nom, description complète, image, prix, allergène)
+        const db = await creatDbConnection();
+        
+        // query pour récuperé l id 
+        console.log('Test => ' + ID);
+        const Images = imageToBase64(`${require.main.path}/views/home/menu/public/image/burger_BBQ.jpeg`);
+        const result = await db.query(`SELECT * FROM Plats where ID = '${ID}'` );
+        
+        const MenuDetailSql = result.recordset.map(row => {
+            return {
+                ID: row['ID'],
+                Nom: row['Nom'],
+                Images: row['Images'],
+                Description: row['Description'],
+                BreveDescription: row['BreveDescription'],
+                Allergenes: row['Allergenes'],
+                Prix: row['Prix']
+            };
+        });
+        console.log('Test Menu' + MenuDetailSql + 'id==>' + ID);
 
-
-        ejs.renderFile(`${require.main.path}/views/home/menuDetail/menuDetail.ejs`)
+        ejs.renderFile(`${require.main.path}/views/home/menuDetail/menuDetail.ejs`,{Images,MenuDetailSql})
             // Rendu de la page (Promise)
 
             .then(pageRender => {

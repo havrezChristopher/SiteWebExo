@@ -5,99 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
 </head>
-<body>
+<body>      
     <a href="/acceuil">Acceuil</a>
+    <a href="/menuDetail">menu Details</a>
+    <a href="/">Commentaire</a>
+    <a href="/message-add"> Ajouter Un Message</a>
+    <a href="/pageInfo">Page Info</a>
 
-        <a href="/menuDetail">menu Details</a>
-        <a href="/pageInfo">Page Info</a>
-        <a href="/">Commentaire</a>
-        <a href="/message-add"> Ajouter Un Message</a>
         <fieldset>
-            <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
             <% MenuSql.forEach (me=> { %>
+            <legend><h1>🍔*** <%= me.Nom %>***🍔</h1></legend>
     
                 <ul>
                     <li>
                         <%= me.ID %>
-                        <%= me.Nom %> <br>
+                         <br>
                          <!--  -->
-                         <img src='data:image/jpeg;base64,<%= me.Images %>' alt=""><br> 
+                         <img src='data:images/jpeg;base64, <%= Images %>' alt=""><br> 
                         <!--  -->
                         <%= me.Description%><br>
                         <%= me.BreveDescription %><br>
+                        <%= me.Prix %><br> 
                         <%= me.Allergenes %><br>
-                        <!-- <%= me.Prix %><br> -->
+                        <a href="/menu-details?ID=<%= me.ID%>"><%= me.Nom %><%= me.ID%>"></a> 
                     </li>
                 </ul>
                 <% })%>
+
         </fieldset>
-    <fieldset>
-        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
-        <% MenuSql.forEach (me=> { %>
-
-            <ul>
-                <li>
-                    <%= me.ID %>
-                    <%= me.Nom %> <br>
-                    <!-- <%= me.Images %><br> -->
-                    <%= me.Description%><br>
-                    <%= me.BreveDescription %><br>
-                    <%= me.Allergenes %><br>
-                    <!-- <%= me.Prix %><br> -->
-                </li>
-            </ul>
-            <% })%>
-    </fieldset>
-    <fieldset>
-        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
-        <% MenuSql.forEach (me=> { %>
-
-            <ul>
-                <li>
-                    <%= me.ID %>
-                    <%= me.Nom %> <br>
-                    <!-- <%= me.Images %><br> -->
-                    <%= me.Description%><br>
-                    <%= me.BreveDescription %><br>
-                    <%= me.Allergenes %><br>
-                    <!-- <%= me.Prix %><br> -->
-                </li>
-            </ul>
-            <% })%>
-    </fieldset>
-    <fieldset>
-        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
-        <% MenuSql.forEach (me=> { %>
-
-            <ul>
-                <li>
-                    <%= me.ID %>
-                    <%= me.Nom %> <br>
-                    <!-- <%= me.Images %><br> -->
-                    <%= me.Description%><br>
-                    <%= me.BreveDescription %><br>
-                    <%= me.Allergenes %><br>
-                    <!-- <%= me.Prix %><br> -->
-                </li>
-            </ul>
-            <% })%>
-    </fieldset>
-    <fieldset>
-        <legend><h1>🍔*** <%= msg.Nom %>***🍔</h1></legend>
-        <% MenuSql.forEach (me=> { %>
-
-            <ul>
-                <li>
-                    <%= me.ID %>
-                    <%= me.Nom %> <br>
-                    <!-- <%= me.Images %><br> -->
-                    <%= me.Description%><br>
-                    <%= me.BreveDescription %><br>
-                    <%= me.Allergenes %><br>
-                    <!-- <%= me.Prix %><br> -->
-                </li>
-            </ul>
-            <% })%>
-    </fieldset>
+    
 </body>
 </html>

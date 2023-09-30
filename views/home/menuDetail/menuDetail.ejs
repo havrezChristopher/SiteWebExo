@@ -9,11 +9,31 @@
 
 <body>
     <a href="/acceuil">Acceuil</a>
-    <a href="/menu">menu</a>
-    <a href="/pageInfo">Page Info</a>
+    <a href="/menuDetail">menu Details</a>
     <a href="/">Commentaire</a>
     <a href="/message-add"> Ajouter Un Message</a>
-    <fieldset>
+    <a href="/pageInfo">Page Info</a>
+
+    <% MenuDetailSql.forEach (me=> { %>
+        <legend><h1>🍔*** <%= me.Nom %>***🍔</h1></legend>
+
+            <ul>
+                <li>
+                    <%= me.ID %>
+                    <%= me.Nom %>
+                     <br>
+                     <img src='data:images/jpeg;base64, <%= Images %>' alt=""><br> 
+                    <%= me.Description%><br>
+                    <%= me.BreveDescription %><br>
+                    <%= me.Allergenes %><br>
+                    <%= me.Prix %><br> 
+                    <!-- <a href="menu?ID=<%= me.ID %>" ><%= me.Nom %></a>  -->
+                </li>
+            </ul>
+            <% })%>
+
+
+<!--    
         <legend>
             <h1>🍔***Burger BBQ ***🍔</h1>
         </legend>
@@ -72,7 +92,7 @@
             <li>8.99</li>
             <li>allergène</li>
         </ul>
-    </fieldset>
+    </fieldset> -->
 </body>
 
 </html>

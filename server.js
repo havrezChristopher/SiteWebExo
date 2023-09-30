@@ -34,6 +34,8 @@ const http = require('http');
 //! Mon Module Perso
 const homeController = require('./controllers/home.controller.js');
 const dbUtils = require('./utils/db.utils.js');
+const url = require('url');
+const queryString = require('querystring');
 
 // Variable d'env
 // Destructuring ici aller chercher les éléments depuis { PORT }
@@ -48,7 +50,10 @@ const server = http.createServer((request, response) => {
     // Info de la requete
     // Info de la requete avec ce que l on va récupérer
     console.log(`url: "${request.url}" • method: "${request.method}"`);
-
+        const parsed = url.parse(request.url);
+        const query  = queryString.parse(parsed.query); 
+         const ID = query.ID
+    console.log("Valeur" + ID)
     // Routing simple (Méthode plus complexe vu avec "Express")
     if(request.url === '/') {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
@@ -69,9 +74,9 @@ const server = http.createServer((request, response) => {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
         homeController.menu(request, response);
     }
-    else if(request.url === '/menuDetail') {
+    else if(request.url === "/menu-details?ID=" + ID) {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
-        homeController.menuDetail(request, response);
+        homeController.menuDetail(request, response, ID);
     }
     else if(request.url === '/pageInfo') {
         // Appel de la méthode "index" en lui transmettant la requete et la réponse
